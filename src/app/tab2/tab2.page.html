@@ -9,9 +9,38 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Search</ion-title>
     </ion-toolbar>
   </ion-header>
+  
+  <div>
+    <ion-toolbar>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+      <ion-searchbar 
+        [(ngModel)]="username" 
+        (search)="searchGitHub($event)" 
+        inputmode="search" 
+        placeholder="Search..." 
+        id="username">
+      </ion-searchbar>
+
+    </ion-toolbar>
+  </div>
+
+  <div>
+    <ion-card *ngIf="profile" (click)="showRepos()">
+      <ion-card-header>
+        <ion-card-title>{{profile?.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <img [src]="profile?.avatar_url" [style.width.px]='imgWidth' [style.margin.px]='imgMargin'>
+        <br/>
+        Repositories: {{profile?.public_repos}}
+        <br/>
+        Followers: {{profile?.followers}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!--<app-explore-container name="Tab 2 page"></app-explore-container>-->
 </ion-content>

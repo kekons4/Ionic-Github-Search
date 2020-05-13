@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button href="/tabs/tab2">back</ion-back-button>
+    </ion-buttons>
+    <ion-title>Repositories:<br/> {{profile?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <!--<ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Repository</ion-title>
+    </ion-toolbar>
+  </ion-header>-->
+
+  <!--<div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Test</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Hello world!</p>
+      </ion-card-content>
+    </ion-card>
+  </div>-->
+
+  <div *ngFor="let repo of repos">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{repo?.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Size: {{repo?.size}}
+        <br/>
+        Stars: {{repo?.stargazers_count}}
+        <br/>
+        Description:
+        <br/>
+        {{repo?.description}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
